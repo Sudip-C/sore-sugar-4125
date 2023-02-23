@@ -9,7 +9,7 @@ import {Link} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 
 function Navbar() {
-const{authState}=useContext(AuthContext)
+const{authState,search}=useContext(AuthContext)
 
     return (
         <div>
@@ -30,7 +30,7 @@ const{authState}=useContext(AuthContext)
           <div className='middleNav'>
             <div className='flex1' >
             <Link to="/"> <img  style={{width:"25%"}} src={logo} alt="alt"/></Link>
-            <input type="text" placeholder='Search'/>
+            <input type="text" placeholder='Search' onChange={(e)=>search(e.target.value)} />
             </div>
             <div className='flex2' >
             <Link> <img style={{width:"30%"}}src={track} alt="name"/></Link>
