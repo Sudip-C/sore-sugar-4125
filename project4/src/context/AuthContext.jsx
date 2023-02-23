@@ -9,6 +9,7 @@ function AuthContextProvider({children}) {
         isAuth:false,
         token:null
     })
+    const [filter,setFilter]=useState("")
 
     const loginUser=(val)=>{
         setState(
@@ -27,9 +28,12 @@ function AuthContextProvider({children}) {
         })
        
     }
+    const search=(val)=>{
+        setFilter(val)
+    }
 
 return(
-    <AuthContext.Provider value={{authState:state,loginUser,logoutUser}}>
+    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter}}>
 
         {children}
     </AuthContext.Provider>

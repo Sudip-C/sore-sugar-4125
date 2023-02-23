@@ -1,0 +1,35 @@
+
+
+.Banner{
+    width: 95%;
+    margin: auto;
+  
+   
+}
+.furniture{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.customers{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+.customers>div{
+    border: 1px solid orangered;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 15px;
+}
