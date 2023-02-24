@@ -20,6 +20,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
   import axios from "axios"
 import { AuthContext } from '../context/AuthContext';
+
   export default function SingleProduct() {
 
 const{id}=useParams()
@@ -35,6 +36,7 @@ const Single=(id)=>{
 const AddToCart=()=>{
 Add_to_Cart(singleData);
   localStorage.setItem("item",JSON.stringify(cart))
+  alert("Product added to cart succesfully.")
 }
 
 useEffect(()=>{Single(id)},[id])

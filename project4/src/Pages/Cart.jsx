@@ -28,7 +28,7 @@ cartProduct.map((el)=>(
             <div>
               <Button m="5px" colorScheme="blue" onClick={()=>Handlclick(el.id,1)} >+</Button>
              <b>{el.quantity}</b> 
-              <Button  m="5px"  colorScheme="red" isDisabled={el.quantity===1}  onClick={()=>Handlclick(el.id,1)}>-</Button>
+              <Button  m="5px"  colorScheme="red" isDisabled={el.quantity===1}  onClick={()=>Handlclick(el.id,-1)}>-</Button>
             </div>
             <p><b>₹{el.Price*el.quantity}</b></p>
 
@@ -37,7 +37,7 @@ cartProduct.map((el)=>(
       <div className='bill'>
         <h1>Total Amount:{total}</h1>
         <h2>GST(18%):{(total*18)/100}</h2>
-        <h1><b>Total:{total+(total*18)/100}</b></h1>
+        <h1><b>Total:{Math.ceil(total+(total*18)/100)}</b></h1>
         <Button m="10px" >Make Payment</Button>
       </div>
        </div> 

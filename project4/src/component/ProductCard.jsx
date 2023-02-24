@@ -53,7 +53,7 @@ import {
                 color={'gray.800'}
                 fontSize={'1.2em'}>
                 <chakra.a href={'#'} display={'flex'}>
-                  <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
+                  {/* <Icon as={FiShoppingCart} h={6} w={6} alignSelf={'center'} /> */}
                 </chakra.a>
               </Tooltip>
             </Flex>
@@ -63,14 +63,14 @@ import {
                 
                 lineHeight="tight"
                 isTruncated>
-               <p>Category:{category}</p> 
+               <p>{category}</p> 
               </Box>
-            <Flex justifyContent="space-between" alignContent="center">
-              <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                <Box as="span" color={'gray.600'} fontSize="lg">
-                  ₹
+            <Flex justifyContent="center" alignContent="center">
+              <Box fontSize="2xl" color={useColorModeValue('black.800', 'white')}>
+                <Box as="span" color={'black.600'} fontSize="lg" textAlign="center">
+                  ₹ {Price}
                 </Box>
-                {Price}
+              
               </Box>
             </Flex>
           </Box>
