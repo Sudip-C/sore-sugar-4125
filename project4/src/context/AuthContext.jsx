@@ -10,7 +10,7 @@ function AuthContextProvider({children}) {
         token:null
     })
     const [filter,setFilter]=useState("")
-
+    let cart=[]
     const loginUser=(val)=>{
         setState(
             {...state,
@@ -31,14 +31,18 @@ function AuthContextProvider({children}) {
     const search=(val)=>{
         setFilter(val)
     }
+    const Add_to_Cart=(val)=>{
+     cart.push(val)
+    }
+    
 
 return(
-    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter}}>
+    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter,Add_to_Cart,cart}}>
 
         {children}
     </AuthContext.Provider>
 )
-
 }
+
 
 export default AuthContextProvider;
