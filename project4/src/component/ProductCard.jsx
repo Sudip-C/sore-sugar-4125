@@ -5,11 +5,9 @@ import {
     Image,
 
     useColorModeValue,
-    Icon,
     chakra,
     Tooltip,
   } from '@chakra-ui/react';
-  import { FiShoppingCart } from 'react-icons/fi';
   
  
   

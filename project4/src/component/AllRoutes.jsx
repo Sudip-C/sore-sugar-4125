@@ -1,6 +1,9 @@
 import React from 'react'
 import {Route, Routes} from "react-router-dom"
+import AddProduct from '../Pages/AddProduct'
+import Admin from '../Pages/Admin'
 import Cart from '../Pages/Cart'
+import Dashboard from '../Pages/Dashboard'
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import NotFound from '../Pages/NotFound'
@@ -22,6 +25,9 @@ function AllRoutes() {
         <Route path="/product/:id" element={<PrivateRoute><SingleProduct/></PrivateRoute>} ></Route>
         <Route path='/wishlist' element={<WishList/>}></Route>
         <Route path='/Cart' element={<Cart/>}></Route>
+        <Route path="/admin" element={<Admin/>}></Route>
+        <Route path='/dashboard' element={<Dashboard/>} ></Route>
+        <Route path="/addProduct" element={<AddProduct/>} ></Route>
         </Routes>
     )
 }

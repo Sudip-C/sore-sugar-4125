@@ -1,6 +1,7 @@
 import {
     Flex, Box, FormControl, FormLabel, Input, Checkbox, Stack, Link, Button, Heading, Text, useColorModeValue,
   } from '@chakra-ui/react';
+  import {Link as NavLink} from "react-router-dom"
   export default function SignUp() {
 
     return (
@@ -36,7 +37,7 @@ import {
                   align={'start'}
                   justify={'space-between'}>
                   <Checkbox>Remember me</Checkbox>
-                  <Link color={'blue.400'}>Forgot password?</Link>
+                  <NavLink color={'blue.400'} to="/login" >Already have account</NavLink>
                 </Stack>
                 <Button
                   bg={'blue.400'}

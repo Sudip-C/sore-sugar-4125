@@ -1,0 +1,18 @@
+.Form{
+    /* border: 1px solid rgb(0, 0, 0); */
+    width:15%;
+    margin: auto;
+    text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: black;
+    font-weight: 600;
+}
+.Form input{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    padding: 5px;
+}
