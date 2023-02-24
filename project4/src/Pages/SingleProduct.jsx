@@ -12,22 +12,31 @@ import {
     SimpleGrid,
     StackDivider,
     useColorModeValue,
+   
   
   } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
   import { MdLocalShipping } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
   import axios from "axios"
+import { AuthContext } from '../context/AuthContext';
   export default function SingleProduct() {
 
 const{id}=useParams()
 
 const[singleData,setSingleData]=useState({})
+const{Add_to_Cart,cart}=useContext(AuthContext)
 
 const Single=(id)=>{
     axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
     .then((res)=>setSingleData(res.data))
 }
+
+const AddToCart=()=>{
+Add_to_Cart(singleData);
+  localStorage.setItem("item",JSON.stringify(cart))
+}
+
 useEffect(()=>{Single(id)},[id])
 
 const{Title,image,category,Price}=singleData
@@ -85,6 +94,7 @@ const{Title,image,category,Price}=singleData
             </Stack>
   
             <Button
+            onClick={AddToCart}
               rounded={'none'}
               w={'full'}
               mt={8}
@@ -96,6 +106,7 @@ const{Title,image,category,Price}=singleData
               _hover={{
                 transform: 'translateY(2px)',
                 boxShadow: 'lg',
+                
               }}>
               Add to cart
             </Button>
