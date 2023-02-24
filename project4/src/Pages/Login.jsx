@@ -89,7 +89,7 @@ const{email,password}=formState
                   align={'start'}
                   justify={'space-between'}>
                   <Checkbox>Remember me</Checkbox>
-                  <Link color={'blue.400'}>Forgot password?</Link>
+                  <NavLink  to="/signup">Don't have Account</NavLink>
                 </Stack>
                 <Button
                   bg={'blue.400'}
@@ -108,13 +108,13 @@ const{email,password}=formState
                   }} onClick={logoutUser} >
                   Sign out
                 </Button>
-              <NavLink to="/signup">  <Button
+              <NavLink to="/admin">  <Button
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  Don't have account sign Up
+                 sign in as Admin
                 </Button></NavLink>
               </Stack>
             </Stack>
