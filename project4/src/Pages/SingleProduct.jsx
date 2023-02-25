@@ -26,7 +26,7 @@ import { AuthContext } from '../context/AuthContext';
 const{id}=useParams()
 
 const[singleData,setSingleData]=useState({})
-const{Add_to_Cart,cart}=useContext(AuthContext)
+const{Add_to_Cart,cart,wishlist,Add_to_Wishlist}=useContext(AuthContext)
 
 const Single=(id)=>{
     axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
@@ -37,6 +37,12 @@ const AddToCart=()=>{
 Add_to_Cart(singleData);
   localStorage.setItem("item",JSON.stringify(cart))
   alert("Product added to cart succesfully.")
+}
+
+const AddTowishlist=()=>{
+  Add_to_Wishlist(singleData);
+  localStorage.setItem("wishlist",JSON.stringify(wishlist))
+  alert("Product added to wishlist.")
 }
 
 useEffect(()=>{Single(id)},[id])
@@ -113,6 +119,7 @@ const{Title,image,category,Price}=singleData
               Add to cart
             </Button>
             <Button
+            onClick={AddTowishlist}
               rounded={'none'}
               w={'full'}
               mt={8}

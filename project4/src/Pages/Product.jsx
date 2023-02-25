@@ -17,6 +17,9 @@ if(filter&&order&&Category){
   URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}&sortBy=Price&order=${order}&category=${Category}`
 }else if(order&&Category){
   URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?sortBy=Price&order=${order}&category=${Category}`
+}
+else if(order&&filter){
+  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}&sortBy=Price&order=${order}`
 }else if(order){
   URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?sortBy=Price&order=${order}`
 }
