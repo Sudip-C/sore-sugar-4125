@@ -23,8 +23,8 @@ function AllRoutes() {
         } ></Route>
         <Route path="/signup" element={<SignUp/>} ></Route>
         <Route path="/product/:id" element={<PrivateRoute><SingleProduct/></PrivateRoute>} ></Route>
-        <Route path='/wishlist' element={<WishList/>}></Route>
-        <Route path='/Cart' element={<Cart/>}></Route>
+        <Route path='/wishlist' element={<PrivateRoute> <WishList/></PrivateRoute> }></Route>
+        <Route path='/Cart' element={<PrivateRoute><Cart/></PrivateRoute>}></Route>
         <Route path="/admin" element={<Admin/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>} ></Route>
         <Route path="/addProduct" element={<AddProduct/>} ></Route>

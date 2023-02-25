@@ -33,7 +33,7 @@ const{authState,search}=useContext(AuthContext)
             <input type="text" placeholder='Search' onChange={(e)=>search(e.target.value)} />
             </div>
             <div className='flex2' >
-            <Link> <img style={{width:"30%"}}src={track} alt="name"/></Link>
+            <Link> <img style={{width:"40%"}}src={track} alt="name"/></Link>
             <Link to="/login"><p>{authState.isAuth?"Hi,User":""}</p><img style={{width:"30%"}}src={user} alt="name"/></Link> 
             <Link to="/wishlist"><img style={{width:"30%"}}src={love} alt="name"/></Link>
             <Link to="/cart"><img style={{width:"30%"}}src={cart} alt="name"/></Link>

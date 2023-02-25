@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "../CSS/Product.css"
 import {
     Flex,
@@ -12,15 +12,17 @@ import {
     Tooltip,
   } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 function Dashboard() {
     const[data,setData]=useState([])
     const[page,setPage]=useState(1)
+    const{totalPage}=useContext(AuthContext)
 
     const deleteItem=(id)=>{
         axios.delete(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
         .then(()=>getProductData())
-        console.log("deleted item",id)
+       
     }
 
 
@@ -35,7 +37,6 @@ useEffect(()=>{
 },[page])
 
 
-let lastPage=data.length
 
     return (
     <>
@@ -111,7 +112,7 @@ let lastPage=data.length
         </div>
         <Button onClick={()=>setPage(page-1)} m="10px"  isDisabled={page<=1}>Prev</Button>
         <Button m="10px" isDisabled>{page}</Button>
-        <Button onClick={()=>setPage(page+1)} m="10px" isDisabled={lastPage===0}>Next</Button>
+        <Button onClick={()=>setPage(page+1)} m="10px" isDisabled={page>=Math.ceil(totalPage/3)}>Next</Button>
         </>
     )
 }

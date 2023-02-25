@@ -35,6 +35,10 @@ let total=0;
 cartProduct?.map((el)=>(
   total+=(el.quantity*el.Price)
 ))
+
+if(data?.length===0)return (<><h1 style={{fontSize:"100px"}}>Cart Empty!</h1>
+       <NavLink to='/product' > <Button m="20px">Continue Shopping</Button></NavLink>
+</>)
 if(data){
     return (
        <div>

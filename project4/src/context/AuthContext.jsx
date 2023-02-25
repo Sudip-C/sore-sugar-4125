@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 
 export const AuthContext=createContext()
 
@@ -9,8 +10,11 @@ function AuthContextProvider({children}) {
         isAuth:false,
         token:null
     })
+    
+    const[totalPage,setTotalPages]=useState(0)
     const [filter,setFilter]=useState("")
     let cart=[]
+    let wishlist=[]
     const loginUser=(val)=>{
         setState(
             {...state,
@@ -35,9 +39,22 @@ function AuthContextProvider({children}) {
      cart.push(val)
     }
     
+    const Add_to_Wishlist=(val)=>{
+        wishlist.push(val)
+    }
 
+
+    const totalPages=()=>{
+        axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products`)
+        .then((res)=>{
+            setTotalPages(res.data.length)
+        })
+       
+    }    
+    useEffect(()=>{totalPages()},[])
 return(
-    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter,Add_to_Cart,cart}}>
+    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter,
+    Add_to_Cart,cart,wishlist,Add_to_Wishlist,totalPage}}>
 
         {children}
     </AuthContext.Provider>
