@@ -22,6 +22,8 @@ if(filter&&order&&Category){
 }
 else if(Category){
   URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?category=${Category}`
+}else if(filter){
+  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}`
 }else{
   URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products`
 }
