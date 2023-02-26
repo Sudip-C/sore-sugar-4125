@@ -21,7 +21,7 @@ function Dashboard() {
 
     const deleteItem=(id)=>{
         axios.delete(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
-        .then(()=>getProductData())
+        .then(()=>getProductData(page))
        
     }
 
@@ -46,6 +46,7 @@ useEffect(()=>{
                 data.map((el)=>(
                     <div key={el.id}>
                    <Box
+                   key={el.id}
           maxW="xs"
           borderWidth="1px"
           rounded="lg"
