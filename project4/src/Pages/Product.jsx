@@ -35,7 +35,7 @@ const getData=()=>{
     axios.get(URL)
 .then((res)=>setProduct(res.data))
 }
-useEffect(()=>{getData()},[filter,order,Category])
+// useEffect(()=>{getData()},[filter,order,Category])
 
     return (
         <>
