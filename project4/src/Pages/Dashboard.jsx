@@ -13,6 +13,7 @@ import {
   } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { API_URL } from '../API/api';
 
 function Dashboard() {
     const[data,setData]=useState([])
@@ -20,14 +21,14 @@ function Dashboard() {
     const{totalPage}=useContext(AuthContext)
 
     const deleteItem=(id)=>{
-        axios.delete(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
+        axios.delete(`${API_URL}/${id}`)
         .then(()=>getProductData(page))
        
     }
 
 
 const getProductData=(page)=>{
-    axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products?p=${page}&l=${3}`)
+    axios.get(`${API_URL}?p=${page}&l=${3}`)
 .then((res)=>{
      setData(res.data)})
 }

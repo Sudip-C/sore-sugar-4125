@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { API_URL } from "../API/api";
 
 export const AuthContext=createContext()
 
@@ -45,7 +46,7 @@ function AuthContextProvider({children}) {
 
 
     const totalPages=()=>{
-        axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products`)
+        axios.get(`${API_URL}`)
         .then((res)=>{
             setTotalPages(res.data.length)
         })

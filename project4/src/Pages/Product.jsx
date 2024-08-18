@@ -5,6 +5,7 @@ import "../CSS/Product.css"
 import {Link as NavLink} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 import { Select } from '@chakra-ui/react'
+import { API_URL } from '../API/api'
 function Product() {
 
 const [product,setProduct]=useState([])
@@ -14,28 +15,28 @@ const{filter}=useContext(AuthContext)
 
 let URL;
 if(filter&&order&&Category){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}&sortBy=Price&order=${order}&category=${Category}`
+  URL=`${API_URL}?search=${filter}&sortBy=Price&order=${order}&Category=${Category}`
 }else if(order&&Category){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?sortBy=Price&order=${order}&category=${Category}`
+  URL=`${API_URL}?sortBy=Price&order=${order}&Category=${Category}`
 }
 else if(order&&filter){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}&sortBy=Price&order=${order}`
+  URL=`${API_URL}?search=${filter}&sortBy=Price&order=${order}`
 }else if(order){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?sortBy=Price&order=${order}`
+  URL=`${API_URL}?sortBy=Price&order=${order}`
 }
 else if(Category){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?category=${Category}`
+  URL=`${API_URL}?Category=${Category}`
 }else if(filter){
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products?search=${filter}`
+  URL=`${API_URL}?search=${filter}`
 }else{
-  URL=`https://63dcf101df83d549ce96e005.mockapi.io/Products`
+  URL=`${API_URL}`
 }
 
 const getData=()=>{
     axios.get(URL)
 .then((res)=>setProduct(res.data))
 }
-// useEffect(()=>{getData()},[filter,order,Category])
+useEffect(()=>{getData()},[filter,order,Category])
 
     return (
         <>

@@ -20,6 +20,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
   import axios from "axios"
 import { AuthContext } from '../context/AuthContext';
+import { API_URL } from '../API/api';
 
   export default function SingleProduct() {
 
@@ -29,7 +30,7 @@ const[singleData,setSingleData]=useState({})
 const{Add_to_Cart,cart,wishlist,Add_to_Wishlist}=useContext(AuthContext)
 
 const Single=(id)=>{
-    axios.get(`https://63dcf101df83d549ce96e005.mockapi.io/Products/${id}`)
+    axios.get(`${API_URL}/${id}`)
     .then((res)=>setSingleData(res.data))
 }
 
@@ -47,7 +48,7 @@ const AddTowishlist=()=>{
 
 useEffect(()=>{Single(id)},[id])
 
-const{Title,image,category,Price}=singleData
+const{Title,image,Category,Price,Description}=singleData
 
     return (
       <Container maxW={'7xl'}>
@@ -73,7 +74,7 @@ const{Title,image,category,Price}=singleData
                 lineHeight={1.1}
                 fontWeight={600}
                 fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-               {category}
+               {Title}
               </Heading>
               <Text
                 color={useColorModeValue('gray.900', 'gray.400')}
@@ -92,9 +93,11 @@ const{Title,image,category,Price}=singleData
                 />
               }>
               <VStack spacing={{ base: 4, sm: 6 }}>
-               
+               <Text fontSize={'md'}>
+                Category : {Category}
+               </Text>
                 <Text fontSize={'lg'}>
-                 {Title}
+                 {Description}
                 </Text>
               </VStack>
               
