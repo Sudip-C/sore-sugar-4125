@@ -3,8 +3,7 @@ A SHOPPING PLATFORM WHERE A CUSTOMER CAN FIND ALL THE FURNITURES FOR THEIR HOME.
 
 Original-Website: https://www.urbanladder.com
 
-Cloned-Website:  https://snazzy-elf-aac16b.netlify.app
-
+Cloned-Website:  https://mydecor00.netlify.app
 
 Technology Stack Used 🌟
 React
