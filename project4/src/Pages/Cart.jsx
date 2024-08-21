@@ -33,7 +33,7 @@ setcartProduct(items)
 
 let total=0;
 cartProduct?.map((el)=>(
-  total+=(el.quantity*el.Price)
+  total+=(el.quantity*(+el.Price))
 ))
 
 if(data?.length===0)return (<><h1 style={{fontSize:"100px"}}>Cart Empty!</h1>
